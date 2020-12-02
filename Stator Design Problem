@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include<math.h>
+int main()
+{
+    float Power=200 , V=250 , P=6, N=1000 , max_flux_density= 0.87 , ac=31000 , efficiency=0.91 , K_f=0.67 ; 
+    float Bav , C0 , D , L, n , Pa ;
+    
+    //calculation of Average Fulx density
+    Bav=K_f*max_flux_density;
+    printf("\n Bav: %.3f weber per meter square",Bav);
+    
+    //calculation of C0
+    C0=(M_PI*M_PI*Bav*ac)/1000;
+    printf("\n C0:%.2f ",C0);
+    
+    //calculation of Pa
+    Pa=Power/efficiency ;
+    printf("\n Pa:%.2f KW",Pa);
+    
+    //calculation of n
+    n=N/60;
+    
+    //calculation of Main Dimesions
+    printf("\n The Main Dimensions:");
+    D=cbrtf(Pa*P/(C0*n*K_f*M_PI));
+    printf("\n Diameter:%.2f m",D);
+    
+    L=K_f*M_PI*D/P;
+    printf("\n Length:%.2f m ",L);
+    
+
+    return 0;
+}
+
