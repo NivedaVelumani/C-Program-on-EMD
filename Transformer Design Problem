@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include<math.h>
+
+
+int main()
+{
+    float Q=200 , frequency=50 , phase=1 , vtg_turns= 14 , Max_flux_desity=1.1 , window_space_factor=0.32 , stacking_factor=0.9;
+    float D , a , d ,Ai, Aw ,Dy ,Hy ,Ww ,Hw ,W ,H ;
+    float current_density=3000000;
+
+    
+    //calculating net iron area
+    Ai=vtg_turns/(4.44*frequency*Max_flux_desity);
+    printf("\nCalculated value of Ai is : %.4f meter square",Ai);
+    //calculating d
+    d= sqrt(Ai/0.56);
+    printf("\n diameter: %.3f meter ",d);
+    //calculating a(width of the largest stamping) = 0.85times d
+    a=0.85*d;
+    printf("\n value of a: %.3f meter",a);
+    //calculating D(distance between adj limbs)=1.6times a
+    D=1.6*a;
+    printf("\n value of D: %.3f meter", D);
+    //calculating Aw
+    Aw= Q*1000/(2.22*frequency*Max_flux_desity*current_density*window_space_factor*stacking_factor);
+    printf("\n value of Aw:%.4f meter square",Aw);
+    
+    //calculating window dimesions
+    Ww=D - d;
+    printf("\nwidth of the window:%.3f meter",Ww);
+    
+    Hw=Aw/Ww;
+    
+    printf("\nheight of the window:%.3f meter ",Hw);
+    
+    //calculating yoke dimesions
+    Dy = a;
+    Hy = a;
+    printf("\n depth of the yoke:%.3f meter",Dy);
+    printf("\n height of the yoke:%.3f meter",Hy);
+    
+    //calculating overall dimensions
+    H= Hw + (2 * Hy);
+    printf("\n Overall Height:%.3f meter",H);
+    
+    W= D + a;
+    printf("\n Overall Width:%.3f meter",W);
+
+    
+    
+    
+    return 0;
+    
+    
+    
+}
+
