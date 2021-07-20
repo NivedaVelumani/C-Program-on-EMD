@@ -13,6 +13,8 @@ int main()
     C0=(M_PI*M_PI*Bav*ac)/1000;
     printf("\n C0:%.2f ",C0);
     
+   //calcalting..
+    
     //calculation of Pa
     Pa=Power/efficiency ;
     printf("\n Pa:%.2f KW",Pa);
